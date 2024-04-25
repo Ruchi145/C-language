@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Function to reverse a string
 void reverseString(char* str) {
     int length = strlen(str);
     for (int i = 0; i < length / 2; i++) {
@@ -10,17 +9,13 @@ void reverseString(char* str) {
         str[length - i - 1] = temp;
     }
 }
-
 int main() {
-    char str[100];
+    char input[100]; 
     printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
-    // Remove newline character if present
-    if (str[strlen(str) - 1] == '\n') {
-        str[strlen(str) - 1] = '\0';
-    }
-    // Reverse the string
-    reverseString(str);
-    printf("Reversed string: %s\n", str);
+    fgets(input, sizeof(input), stdin); 
+    input[strcspn(input, "\n")] = '\0'; 
+
+    reverseString(input);
+    printf("Reversed string: %s\n", input);
     return 0;
 }
